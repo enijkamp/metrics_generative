@@ -1,6 +1,6 @@
 # metrics for generative models
 
-Updated inception and fid code,
+Updated inception and fid scores code.
 
 requires:
 
