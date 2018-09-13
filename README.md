@@ -16,7 +16,7 @@ features:
 
 notes:
 
-* be careful when computing inception scores, verify (1) nhwc, rgb order, (2) normalization, (3) sample size
+* be careful when computing inception scores, verify (1) nhwc, ncwh, rgb order, (2) normalization, (3) sample size
 * see general inception score issues: https://github.com/sbarratt/inception-score-pytorch/issues?q=is%3Aissue+is%3Aclosed
 * the official, widely used open-ai tensorflow v2 code appears to have a bug: https://github.com/sbarratt/inception-score-pytorch/issues/1
 * read about general issues regarding the inception score: https://arxiv.org/pdf/1801.01973.pdf
