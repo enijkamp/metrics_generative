@@ -21,15 +21,15 @@ with create_session() as sess:
     iter_one = dataset.make_one_shot_iterator()
     data = list(sess.run(iter_one.get_next()[0]))
 
-# incept1 = get_inception_score(create_session, data, bs=1)
-# print(incept1)
-# # (11.2402725, 0.20432183)
-# assert incept1[0] > 11
-#
-# incept2 = get_inception_score(create_session, data, bs=100)
-# print(incept2)
-# # (11.24027, 0.20432393)
-# assert incept2[0] > 11
+incept1 = get_inception_score(create_session, data, bs=1)
+print(incept1)
+# (11.2402725, 0.20432183)
+assert incept1[0] > 11
+
+incept2 = get_inception_score(create_session, data, bs=100)
+print(incept2)
+# (11.24027, 0.20432393)
+assert incept2[0] > 11
 
 #############################################################################################################
 # inception score with pytorch data loader
