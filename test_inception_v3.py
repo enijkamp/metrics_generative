@@ -32,12 +32,20 @@ cifar2 = dset.CIFAR10(root='data/', download=True,
 
 incept1 = inception_score(IgnoreLabelDataset(cifar1), cuda=True, batch_size=1, resize=True, splits=10)
 print(incept1)
+# (9.672783335442967, 0.14991609945479523)
+assert incept1[0] > 9.5
 
-incept2 = inception_score(IgnoreLabelDataset(cifar1), cuda=True, batch_size=100, resize=True, splits=10)
+incept2 = inception_score(IgnoreLabelDataset(cifar1), cuda=True, batch_size=10, resize=True, splits=10)
 print(incept2)
+# (9.67278277984201, 0.14991598186787766)
+assert incept2[0] > 9.5
 
 incept3 = inception_score(IgnoreLabelDataset(cifar2), cuda=True, batch_size=1, resize=True, splits=10)
 print(incept3)
+# (10.45415392273974, 0.1428910206001064)
+assert incept3[0] > 10.2
 
-incept4 = inception_score(IgnoreLabelDataset(cifar2), cuda=True, batch_size=100, resize=True, splits=10)
+incept4 = inception_score(IgnoreLabelDataset(cifar2), cuda=True, batch_size=10, resize=True, splits=10)
 print(incept4)
+# (10.4541538553588, 0.14289089976856756)
+assert incept4[0] > 10.2

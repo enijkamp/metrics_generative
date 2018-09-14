@@ -9,8 +9,8 @@ from cifar10_tf import input_fn
 def create_session():
     import tensorflow as tf
     config = tf.ConfigProto()
-    config.gpu_options.allow_growth = False
-    config.gpu_options.per_process_gpu_memory_fraction = 0.95
+    config.gpu_options.allow_growth = True
+    config.gpu_options.per_process_gpu_memory_fraction = 0.5
     config.gpu_options.visible_device_list = str(0)
     return tf.Session(config=config)
 
@@ -30,7 +30,8 @@ with create_session() as sess:
 print('fid with tensorflow dataset')
 fid1 = fid_score(create_session, dataset_full, gen_samples_list)
 print(fid1)
-assert fid1 < 40
+# 29.852803521371698
+assert fid1 < 32
 
 #############################################################################################################
 # fid score with pytorch data loader
@@ -51,4 +52,5 @@ dataset_nhwc = np.clip(255 * to_nhwc(unnormalize(dataset_full)), 0.0, 255)
 print('fid with pytorch dataset')
 fid2 = fid_score(create_session, dataset_nhwc, gen_samples_list)
 print(fid2)
-assert fid2 < 40
+# 29.85279935346972
+assert fid2 < 32
