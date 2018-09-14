@@ -5,7 +5,7 @@ Updated inception and fid scores code.
 requires:
 
 * python >= 3.6
-* pytorch >= 4.0
+* pytorch >= 0.4.0
 * tensorflow >= 1.10
 
 features:
